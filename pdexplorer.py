@@ -51,8 +51,7 @@ def dir_activity(target_dir: Path) -> pd.DataFrame:
             "mtime_fmt": pd.Timestamp.fromtimestamp(
                 f.stat().st_mtime, tz=get_localzone()
             )
-            .strftime("%d%b%y %H:%M:%S %Z")
-            .lstrip("0"),
+            .strftime("%#d%b%y %H:%M:%S %Z"),
             # 'owner': f.owner(),
             "owner": read_win32_owner(f),
         }
